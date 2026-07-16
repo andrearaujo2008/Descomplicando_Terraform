@@ -20,9 +20,11 @@ terraform {
 #Here this provider your region London
 provider "aws" {
   region = "eu-west-2"
+  alias  = "lodon"
 }
 
 #Here this provider your region Virginia USA
 provider "aws" {
   region = "us-east-1"
+  alias  = "virginia"
 }
