@@ -3,7 +3,7 @@
 #Data 16/07/2026 (Thursday)
 
 resource "aws_instance" "cluster_kubernetes" {
-    #count   = 1 #Here I'm specify how many instance I want to raise it 
+    count   = 3 #Here I'm specify how many instance I want to raise it 
     provider = aws.london # Region where the aws will be raise
     instance_type = var.ec2_instance_type #Type Instance in this case T3.medium
     ami = var.image["eu-west-2"] #Image Instance
@@ -20,7 +20,7 @@ resource "aws_instance" "cluster_kubernetes" {
         ] 
 
    tags = {
-    Name = "kubernetes_instance-$count.index + 1}" #Name will be in tags
+    Name = "kubernetes_instance-${count.index + 1}" #Name will be in tags
   }
   
 }
