@@ -18,9 +18,16 @@ resource "aws_instance" "cluster_kubernetes" {
         "sg-0663f337f58451693", 
         "sg-0af372fc867e0d109"
         ] 
+    
 
    tags = {
     Name = "kubernetes_instance-${count.index + 1}" #Name will be in tags
   }
+  
+}
+
+#Mostrar os Ips das Instancias
+output "ip_das_instancias" {
+  value = aws_instance.cluster_kubernetes[*].associate_public_ip_address
   
 }
