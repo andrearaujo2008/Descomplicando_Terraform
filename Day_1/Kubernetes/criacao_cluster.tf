@@ -28,6 +28,6 @@ resource "aws_instance" "cluster_kubernetes" {
 
 #Mostrar os Ips das Instancias
 output "ip_das_instancias" {
-  value = aws_instance.cluster_kubernetes[*].associate_public_ip_address
+  value = aws_instance.cluster_kubernetes[*].public_ip
   
 }
