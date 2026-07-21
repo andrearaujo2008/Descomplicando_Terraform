@@ -8,7 +8,7 @@ variable "image" {
   type = map(string)
   description = "Mapa de AMIs aprovadas por regiao."
   default = {
-    "eu-west-2" = "ami-002aab1cab5a08e35"
+    "eu-west-2" = "ami-073f149603898e301"
   }
 }
 
