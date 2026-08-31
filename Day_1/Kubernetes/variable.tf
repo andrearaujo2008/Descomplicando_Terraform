@@ -8,7 +8,9 @@ variable "image" {
   type = map(string)
   description = "Mapa de AMIs aprovadas por regiao."
   default = {
+  
     "eu-west-2" = "ami-0224ce6f9504665ee" #Sistema Ubuntu Server
+
   }
 }
 
