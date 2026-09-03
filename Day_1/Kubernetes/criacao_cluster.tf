@@ -27,15 +27,28 @@ resource "aws_instance" "cluster_kubernetes" {
 
 }
 
-#Elastic IP
+#Elastic IP Allocation (Standalone and protected from destruction)
 resource "aws_eip" "base" {
   count    = 2
   provider = aws.london # Region where the aws will be assign these ips
-  instance = aws_instance.cluster_kubernetes[count.index].id
-  domain   = "vpc"
+  #instance = aws_instance.cluster_kubernetes[count.index].id
+  domain = "vpc"
+
+  lifecycle {
+    prevent_destroy = true # Blocks terraform destroy from deleting this IP
+  }
 
   tags = {
-    Name = "kube_eip"
+    Name = "kube_eip${count.index + 1}"
   }
+
+}
+
+# Association Bridge (Connects the IP to the Instance)
+resource "aws_eip_association" "eip_assoc" {
+  count         = 2
+  provider      = aws.london
+  instance_id   = aws_instance.cluster_kubernetes[count.index].id
+  allocation_id = aws_eip.base[count.index].id
 
 }
