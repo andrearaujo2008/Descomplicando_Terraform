@@ -5,7 +5,7 @@
 
 #Instance AWS how will create to kubernetes
 resource "aws_instance" "cluster_kubernetes" {
-  count         = 2                      #Here I'm specify how many instance I want to raise it 
+  count         = 3                      #Here I'm specify how many instance I want to raise it 
   provider      = aws.london             # Region where the aws will be raise
   instance_type = var.ec2_instance_type  #Type Instance in this case T3.medium
   ami           = var.image["eu-west-2"] #Image Instance
@@ -29,7 +29,7 @@ resource "aws_instance" "cluster_kubernetes" {
 
 #Elastic IP Allocation (Standalone and protected from destruction)
 resource "aws_eip" "base" {
-  count    = 2
+  count    = 3
   provider = aws.london # Region where the aws will be assign these ips
   #instance = aws_instance.cluster_kubernetes[count.index].id
   domain = "vpc"
@@ -46,7 +46,7 @@ resource "aws_eip" "base" {
 
 # Association Bridge (Connects the IP to the Instance)
 resource "aws_eip_association" "eip_assoc" {
-  count         = 2
+  count         = 3
   provider      = aws.london
   instance_id   = aws_instance.cluster_kubernetes[count.index].id
   allocation_id = aws_eip.base[count.index].id
