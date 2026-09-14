@@ -1,0 +1,4 @@
+ --- CONFIGURAÇÃO DO SERVIDOR ---
+Ambiente: dev
+Detalhes: dev
+Detalhes: Ambiente de Desenvolvimento - Modo Debug Ativo

@@ -1,0 +1,4 @@
+ --- CONFIGURAÇÃO DO SERVIDOR ---
+Ambiente: default
+Detalhes: default
+Detalhes: Servidor Local de Teste Rapido

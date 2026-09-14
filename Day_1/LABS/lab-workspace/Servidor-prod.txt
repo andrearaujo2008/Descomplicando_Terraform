@@ -1,0 +1,4 @@
+ --- CONFIGURAÇÃO DO SERVIDOR ---
+Ambiente: prod
+Detalhes: prod
+Detalhes: Ambiente de Producao - Alta Disponibilidade e Seguranca
