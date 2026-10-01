@@ -1,0 +1,3 @@
+APP: MONITORING-SERVICE
+ COUNT: 3
+ API_KEY: secret-key-xyz-789
