@@ -12,6 +12,13 @@ resource "aws_instance" "cluster_kubernetes" {
   subnet_id     = var.subnet_id          #Subnet where will be used
   key_name      = var.keypair            #Name keypair to acess via ssh
 
+  root_block_device {
+    # If it's instance 0, set size to 30 GB; otherwise leave it at 20 GB
+    volume_size           = count.index == 0 ? 30 : 20
+    volume_type           = "gp3"
+    delete_on_termination = true #true -> in case you destroy Instance ebs will be destroying together | false = It will not delete
+  }
+
   #Enable assign Public IP automatic
   associate_public_ip_address = true
 
