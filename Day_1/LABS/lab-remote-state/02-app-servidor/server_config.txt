@@ -1,0 +1,5 @@
+  Configuracao do Servidor Web:
+  ------------------------------------------------
+  VPC Conectada: vpc-corporativa-xyz99
+  Sub-rede Utilizada: subnet-publica-east-1a
+  Status: Servidor alocado na rede existente com sucesso!
